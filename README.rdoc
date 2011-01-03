@@ -1,6 +1,56 @@
 = yard-examples-from-rspec
 
-Description goes here.
+Yard plugin to include examples in the generated doc through rspec
+
+== Installation
+
+I order to install it you just have to install it gem from gemcutter
+
+  gem install yard-examples-from-rspec 
+
+== Description
+
+This plugin simply includes an example tag and recreates it with the source code that corresponds to an example called "works this way". This have to be defined inside a describe block called "#method_name" that, in turn, has to be defined in a describe block with the class name, i.e. the regular way people use rspec when testing objects.
+
+So, for example,
+
+Given this source code:
+
+  class Foo
+    ## 
+    # This is a foo method with an example
+    # @rspec_example
+    def foo_method
+    end
+  end
+
+And this spec:
+
+  describe Foo::Bar do
+    describe "#bar_method" do 
+      it "works this way" do
+        this = "is"
+        # The code that will be included in the example
+      end
+    end
+  end
+
+A result like this is to be expected
+  class Foo
+    ## 
+    # This is a foo method with an example
+    # @example
+    #   this = "is"
+    #   # The code that will be included in the example
+    def foo_method
+    end
+  end
+
+== Using it
+
+In order to use it, you just have to add the --plugin param plus yours
+
+  yardoc --plugin examples-from-rspec [OPTS]
 
 == Contributing to yard-examples-from-rspec
  
@@ -14,6 +64,6 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2010 Jose Fernandez (magec). See LICENSE.txt for
+Copyright (c) 2011 Jose Fernandez (magec). See LICENSE.txt for
 further details.
 
