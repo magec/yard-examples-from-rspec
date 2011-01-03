@@ -4,7 +4,7 @@ Yard plugin to include examples in the generated doc through rspec
 
 == Installation
 
-I order to install it you just have to install it gem from gemcutter
+In order to install it you just have to install it gem from gemcutter
 
   gem install yard-examples-from-rspec 
 
