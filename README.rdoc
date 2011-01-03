@@ -26,8 +26,8 @@ Given this source code:
 
 And this spec:
 
-  describe Foo::Bar do
-    describe "#bar_method" do 
+  describe Foo do
+    describe "#foo_method" do 
       it "works this way" do
         this = "is"
         # The code that will be included in the example
